@@ -242,34 +242,3 @@ footer {
     .nav-links {
         display: none;
     }
-}
-header {
-    position: relative;
-}
-
-.top-modes {
-    position: absolute;
-    top: 35px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 20px;
-    z-index: 20;
-}
-
-.top-modes a {
-    color: white;
-    background: #7c3cff;
-    padding: 14px 25px;
-    border-radius: 10px;
-    text-decoration: none;
-    font-weight: 900;
-    font-size: 15px;
-    box-shadow: 0 0 25px #7c3cff;
-    transition: .2s;
-}
-
-.top-modes a:hover {
-    background: #9564ff;
-    transform: translateY(-3px);
-}
