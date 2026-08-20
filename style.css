@@ -14,10 +14,34 @@ nav {
     height: 75px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    position: relative;
     padding: 0 8%;
     background: #0c0e14;
     border-bottom: 1px solid #20232d;
+}
+
+.logo {
+    position: absolute;
+    left: 8%;
+}
+
+.nav-links {
+    display: flex;
+    gap: 35px;
+    align-items: center;
+}
+
+.nav-links a {
+    color: #aaa;
+    text-decoration: none;
+    font-weight: bold;
+    transition: .2s;
+}
+
+.nav-links a:hover {
+    color: white;
+}
 }
 
 .logo {
