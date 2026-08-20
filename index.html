@@ -21,7 +21,7 @@
 <header>
     <div class="hero">
         <p class="small">OFICJALNY SKLEP SERWERA</p>
-        <h1>WESPRZYJ<br><span>NASZ SERWER</span></h1>
+        <h1>WESPRZYJ<br><span>FINALBRO</span></h1>
         <p class="description">
             Kup rangę i odbierz wyjątkowe możliwości na serwerze Minecraft
         </p>
@@ -34,9 +34,17 @@
     <p class="small">SKLEP</p>
     <h2>WYBIERZ RANGĘ</h2>
 
+    <div class="modes">
+        <button onclick="showMode('boxpvp')">BOXPVP</button>
+        <button onclick="showMode('survival')">SURVIVAL</button>
+        <button onclick="showMode('lifesteal')">LIFESTEAL</button>
+    </div>
+
     <div class="cards">
 
-        <div class="card">
+        <!-- BOXPVP -->
+
+        <div class="card" data-mode="boxpvp">
             <div class="rank">VIP</div>
             <div class="price">9,99 zł</div>
             <p>Podstawowe przywileje</p>
@@ -48,7 +56,7 @@
             <button onclick="buy('VIP', 999)">KUP TERAZ</button>
         </div>
 
-        <div class="card popular">
+        <div class="card popular" data-mode="boxpvp">
             <div class="badge">POPULARNA</div>
             <div class="rank">SVIP</div>
             <div class="price">19,99 zł</div>
@@ -61,7 +69,9 @@
             <button onclick="buy('SVIP', 1999)">KUP TERAZ</button>
         </div>
 
-        <div class="card">
+        <!-- SURVIVAL -->
+
+        <div class="card" data-mode="survival">
             <div class="rank">GVIP</div>
             <div class="price">29,99 zł</div>
             <p>Ranga premium</p>
@@ -73,7 +83,9 @@
             <button onclick="buy('GVIP', 2999)">KUP TERAZ</button>
         </div>
 
-        <div class="card final">
+        <!-- LIFESTEAL -->
+
+        <div class="card final" data-mode="lifesteal">
             <div class="rank">FINAL</div>
             <div class="price">49,99 zł</div>
             <p>Najwyższa ranga</p>
@@ -103,10 +115,30 @@
 </section>
 
 <footer>
-    © 2026 Twój Serwer
+    © 2026 FINALBRO
 </footer>
 
 <script>
+
+function showMode(mode) {
+
+    const cards = document.querySelectorAll(".card");
+
+    cards.forEach(card => {
+
+        if (card.dataset.mode === mode) {
+            card.style.display = "";
+        } else {
+            card.style.display = "none";
+        }
+
+    });
+
+}
+
+showMode("boxpvp");
+
+
 async function buy(rank, price) {
 
     const username = prompt("Podaj swój nick Minecraft:");
@@ -134,8 +166,13 @@ async function buy(rank, price) {
     } else {
         alert("Nie udało się rozpocząć płatności");
     }
+
 }
+
 </script>
+
+</body>
+</html>
 
 </body>
 </html>
