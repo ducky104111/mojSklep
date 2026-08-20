@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>FINALBRO | Rekrutacja</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+.recruitment {
+    max-width: 850px;
+    margin: 80px auto;
+    padding: 0 20px;
+}
+
+.recruitment-box {
+    background: #10121a;
+    border: 1px solid #242733;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 0 40px rgba(124, 60, 255, 0.08);
+}
+
+.recruitment-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.recruitment-title .small {
+    margin-bottom: 12px;
+}
+
+.recruitment-title h1 {
+    font-size: 55px;
+}
+
+.recruitment-title h1 span {
+    color: #7c3cff;
+}
+
+.form-group {
+    margin-bottom: 22px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: white;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 14px;
+    background: #08090d;
+    color: white;
+    border: 1px solid #292d3a;
+    border-radius: 10px;
+    outline: none;
+    font-family: Arial, sans-serif;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #7c3cff;
+}
+
+.form-group textarea {
+    min-height: 140px;
+    resize: vertical;
+}
+
+.submit-button {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 10px;
+    background: #7c3cff;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.submit-button:hover {
+    background: #9564ff;
+    transform: translateY(-2px);
+}
+
+.back-button {
+    display: block;
+    width: fit-content;
+    margin: 25px auto 0;
+    color: #aaa;
+    text-decoration: none;
+}
+
+.back-button:hover {
+    color: white;
+}
+
+@media (max-width: 600px) {
+
+    .recruitment-box {
+        padding: 25px;
+    }
+
+    .recruitment-title h1 {
+        font-size: 40px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav>
+
+    <div class="logo">
+        FINAL<span>BRO</span>
+    </div>
+
+    <div class="nav-links">
+
+        <a href="index.html">
+            Sklep
+        </a>
+
+        <a href="https://discord.gg/7hqjaUMTx" target="_blank">
+            Discord
+        </a>
+
+    </div>
+
+</nav>
+
+
+<section class="recruitment">
+
+    <div class="recruitment-box">
+
+        <div class="recruitment-title">
+
+            <p class="small">
+                FINALBRO
+            </p>
+
+            <h1>
+                REKRUTACJA
+                <span>FINALBRO</span>
+            </h1>
+
+        </div>
+
+
+        <form id="recruitmentForm">
+
+
+            <div class="form-group">
+
+                <label>
+                    Nick Minecraft
+                </label>
+
+                <input
+                    type="text"
+                    name="nick"
+                    placeholder="np. Ducky_104"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Discord
+                </label>
+
+                <input
+                    type="text"
+                    name="discord"
+                    placeholder="np. ducky_104"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Na jakie stanowisko?
+                </label>
+
+                <select name="stanowisko" required>
+
+                    <option value="">
+                        Wybierz stanowisko
+                    </option>
+
+                    <option value="Helper">
+                        Helper
+                    </option>
+
+                    <option value="Moderator">
+                        Moderator
+                    </option>
+
+                    <option value="Administrator">
+                        Administrator
+                    </option>
+
+                    <option value="Budowniczy">
+                        Budowniczy
+                    </option>
+
+                    <option value="Developer">
+                        Developer
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Dlaczego chcesz dołączyć do administracji?
+                </label>
+
+                <textarea
+                    name="dlaczego"
+                    placeholder="Napisz kilka zdań..."
+                    required
+                ></textarea>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Jakie masz doświadczenie?
+                </label>
+
+                <textarea
+                    name="doswiadczenie"
+                    placeholder="Napisz gdzie wcześniej pomagałeś..."
+                    required
+                ></textarea>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Dlaczego mamy wybrać właśnie Ciebie?
+                </label>
+
+                <textarea
+                    name="dlaczegoTy"
+                    placeholder="Przekonaj nas..."
+                    required
+                ></textarea>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="submit-button">
+
+                WYŚLIJ REKRUTACJĘ
+
+            </button>
+
+        </form>
+
+
+        <a
+            href="index.html"
+            class="back-button">
+
+            ← Wróć do sklepu
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    © 2026 FINALBRO
+
+</footer>
+
+
+<script>
+
+document
+.getElementById("recruitmentForm")
+.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    alert(
+        "Rekrutacja została przygotowana. Niedługo podłączymy wysyłanie formularza."
+    );
+
+});
+
+</script>
+
+</body>
+
+</html>
