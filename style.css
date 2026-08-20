@@ -238,5 +238,17 @@ footer {
     .cards {
         grid-template-columns: 1fr;
     }
+    .nav-links {
+        display: none;
+    }
 
+    .top-modes {
+        gap: 8px;
+    }
+
+    .top-modes a {
+        padding: 10px 12px;
+        font-size: 11px;
+    }
+}
    
