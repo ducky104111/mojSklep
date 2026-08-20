@@ -32,21 +32,13 @@
     </div>
 </header>
 
-<section id="rangi">
-    <p class="small">SKLEP</p>
-    <h2>WYBIERZ RANGĘ</h2>
-
-    <div class="modes">
-        <button onclick="showMode('boxpvp')">BOXPVP</button>
-        <button onclick="showMode('survival')">SURVIVAL</button>
-        <button onclick="showMode('lifesteal')">LIFESTEAL</button>
-    </div>
+<section id="boxpvp">
+    <p class="small">BOXPVP</p>
+    <h2>RANGI BOXPVP</h2>
 
     <div class="cards">
 
-        <!-- BOXPVP -->
-
-        <div class="card" data-mode="boxpvp">
+        <div class="card">
             <div class="rank">VIP</div>
             <div class="price">9,99 zł</div>
             <p>Podstawowe przywileje</p>
@@ -55,10 +47,10 @@
                 <li>✔ Komendy VIP</li>
                 <li>✔ Dodatkowe możliwości</li>
             </ul>
-            <button onclick="buy('VIP', 999)">KUP TERAZ</button>
+            <button onclick="buy('BOXPVP VIP', 999)">KUP TERAZ</button>
         </div>
 
-        <div class="card popular" data-mode="boxpvp">
+        <div class="card popular">
             <div class="badge">POPULARNA</div>
             <div class="rank">SVIP</div>
             <div class="price">19,99 zł</div>
@@ -68,51 +60,79 @@
                 <li>✔ Prefix SVIP</li>
                 <li>✔ Więcej komend</li>
             </ul>
-            <button onclick="buy('SVIP', 1999)">KUP TERAZ</button>
-        </div>
-
-        <!-- SURVIVAL -->
-
-        <div class="card" data-mode="survival">
-            <div class="rank">GVIP</div>
-            <div class="price">29,99 zł</div>
-            <p>Ranga premium</p>
-            <ul>
-                <li>✔ Wszystko z SVIP</li>
-                <li>✔ Prefix GVIP</li>
-                <li>✔ Specjalne dodatki</li>
-            </ul>
-            <button onclick="buy('GVIP', 2999)">KUP TERAZ</button>
-        </div>
-
-        <!-- LIFESTEAL -->
-
-        <div class="card final" data-mode="lifesteal">
-            <div class="rank">FINAL</div>
-            <div class="price">49,99 zł</div>
-            <p>Najwyższa ranga</p>
-            <ul>
-                <li>✔ Wszystko z GVIP</li>
-                <li>✔ Prefix FINAL</li>
-                <li>✔ Najlepsze możliwości</li>
-            </ul>
-            <button onclick="buy('FINAL', 4999)">KUP TERAZ</button>
+            <button onclick="buy('BOXPVP SVIP', 1999)">KUP TERAZ</button>
         </div>
 
     </div>
 </section>
 
-<section id="discord">
-    <div class="discord-box">
-        <p class="small">MASZ PYTANIA?</p>
-        <h2>DOŁĄCZ NA DISCORDA</h2>
-        <p>Wbij na naszego Discorda i poznaj społeczność</p>
 
-        <a href="https://discord.gg/7hqjaUMTx"
-           target="_blank"
-           class="discord-button">
-           DOŁĄCZ NA DISCORD
-        </a>
+<section id="survival">
+    <p class="small">SURVIVAL</p>
+    <h2>RANGI SURVIVAL</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="rank">VIP</div>
+            <div class="price">9,99 zł</div>
+            <p>Podstawowe przywileje</p>
+            <ul>
+                <li>✔ Prefix VIP</li>
+                <li>✔ Komendy VIP</li>
+                <li>✔ Dodatkowe możliwości</li>
+            </ul>
+            <button onclick="buy('SURVIVAL VIP', 999)">KUP TERAZ</button>
+        </div>
+
+        <div class="card popular">
+            <div class="badge">POPULARNA</div>
+            <div class="rank">SVIP</div>
+            <div class="price">19,99 zł</div>
+            <p>Więcej możliwości</p>
+            <ul>
+                <li>✔ Wszystko z VIP</li>
+                <li>✔ Prefix SVIP</li>
+                <li>✔ Więcej komend</li>
+            </ul>
+            <button onclick="buy('SURVIVAL SVIP', 1999)">KUP TERAZ</button>
+        </div>
+
+    </div>
+</section>
+
+
+<section id="lifesteal">
+    <p class="small">LIFESTEAL</p>
+    <h2>RANGI LIFESTEAL</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="rank">VIP</div>
+            <div class="price">9,99 zł</div>
+            <p>Podstawowe przywileje</p>
+            <ul>
+                <li>✔ Prefix VIP</li>
+                <li>✔ Komendy VIP</li>
+                <li>✔ Dodatkowe możliwości</li>
+            </ul>
+            <button onclick="buy('LIFESTEAL VIP', 999)">KUP TERAZ</button>
+        </div>
+
+        <div class="card popular">
+            <div class="badge">POPULARNA</div>
+            <div class="rank">SVIP</div>
+            <div class="price">19,99 zł</div>
+            <p>Więcej możliwości</p>
+            <ul>
+                <li>✔ Wszystko z VIP</li>
+                <li>✔ Prefix SVIP</li>
+                <li>✔ Więcej komend</li>
+            </ul>
+            <button onclick="buy('LIFESTEAL SVIP', 1999)">KUP TERAZ</button>
+        </div>
+
     </div>
 </section>
 
