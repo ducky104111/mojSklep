@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Twój Serwer | Sklep</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">TWÓJ<span>SERWER</span></div>
+
+    <div class="nav-links">
+        <a href="#rangi">Rangi</a>
+        <a href="#discord">Discord</a>
+    </div>
+</nav>
+
+<header>
+    <div class="hero">
+        <p class="small">OFICJALNY SKLEP SERWERA</p>
+        <h1>WESPRZYJ<br><span>NASZ SERWER</span></h1>
+        <p class="description">
+            Kup rangę i odbierz wyjątkowe możliwości na serwerze Minecraft
+        </p>
+
+        <a href="#rangi" class="button">ZOBACZ RANGI</a>
+    </div>
+</header>
+
+<section id="rangi">
+    <p class="small">SKLEP</p>
+    <h2>WYBIERZ RANGĘ</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="rank">VIP</div>
+            <div class="price">9,99 zł</div>
+            <p>Podstawowe przywileje</p>
+            <ul>
+                <li>✔ Prefix VIP</li>
+                <li>✔ Komendy VIP</li>
+                <li>✔ Dodatkowe możliwości</li>
+            </ul>
+            <button onclick="buy('VIP', 999)">KUP TERAZ</button>
+        </div>
+
+        <div class="card popular">
+            <div class="badge">POPULARNA</div>
+            <div class="rank">SVIP</div>
+            <div class="price">19,99 zł</div>
+            <p>Więcej możliwości</p>
+            <ul>
+                <li>✔ Wszystko z VIP</li>
+                <li>✔ Prefix SVIP</li>
+                <li>✔ Więcej komend</li>
+            </ul>
+            <button onclick="buy('SVIP', 1999)">KUP TERAZ</button>
+        </div>
+
+        <div class="card">
+            <div class="rank">GVIP</div>
+            <div class="price">29,99 zł</div>
+            <p>Ranga premium</p>
+            <ul>
+                <li>✔ Wszystko z SVIP</li>
+                <li>✔ Prefix GVIP</li>
+                <li>✔ Specjalne dodatki</li>
+            </ul>
+            <button onclick="buy('GVIP', 2999)">KUP TERAZ</button>
+        </div>
+
+        <div class="card final">
+            <div class="rank">FINAL</div>
+            <div class="price">49,99 zł</div>
+            <p>Najwyższa ranga</p>
+            <ul>
+                <li>✔ Wszystko z GVIP</li>
+                <li>✔ Prefix FINAL</li>
+                <li>✔ Najlepsze możliwości</li>
+            </ul>
+            <button onclick="buy('FINAL', 4999)">KUP TERAZ</button>
+        </div>
+
+    </div>
+</section>
+
+<section id="discord">
+    <div class="discord-box">
+        <p class="small">MASZ PYTANIA?</p>
+        <h2>DOŁĄCZ NA DISCORDA</h2>
+        <p>Wbij na naszego Discorda i poznaj społeczność</p>
+
+        <a href="https://discord.gg/7hqjaUMTx"
+           target="_blank"
+           class="discord-button">
+           DOŁĄCZ NA DISCORD
+        </a>
+    </div>
+</section>
+
+<footer>
+    © 2026 Twój Serwer
+</footer>
+
+<script>
+async function buy(rank, price) {
+
+    const username = prompt("Podaj swój nick Minecraft:");
+
+    if (!username) {
+        return;
+    }
+
+    const response = await fetch("/create-checkout.php", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            rank: rank,
+            price: price,
+            username: username
+        })
+    });
+
+    const data = await response.json();
+
+    if (data.url) {
+        window.location.href = data.url;
+    } else {
+        alert("Nie udało się rozpocząć płatności");
+    }
+}
+</script>
+
+</body>
+</html>
