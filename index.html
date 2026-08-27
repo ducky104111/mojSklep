@@ -14,18 +14,17 @@
     <div class="logo">FINAL<span>BRO</span></div>
 
     <div class="nav-links">
-        <a href="#" onclick="showMode('boxpvp'); return false;">BOXPVP</a>
+        <a href="#" onclick="showMode('skywars'); return false;">SKYWARS</a>
         <a href="#" onclick="showMode('survival'); return false;">SURVIVAL</a>
         <a href="#" onclick="showMode('lifesteal'); return false;">LIFESTEAL</a>
         <a href="#discord">DISCORD</a>
     </div>
 </nav>
 
-
 <header>
 
     <div class="top-modes">
-        <a href="#" onclick="showMode('boxpvp'); return false;">BOXPVP</a>
+        <a href="#" onclick="showMode('skywars'); return false;">SKYWARS</a>
         <a href="#" onclick="showMode('survival'); return false;">SURVIVAL</a>
         <a href="#" onclick="showMode('lifesteal'); return false;">LIFESTEAL</a>
     </div>
@@ -39,9 +38,9 @@
             Kup rangę i odbierz wyjątkowe możliwości na serwerze Minecraft
         </p>
 
-        <a href="#boxpvp"
+        <a href="#skywars"
            class="button"
-           onclick="showMode('boxpvp'); return false;">
+           onclick="showMode('skywars'); return false;">
            ZOBACZ RANGI
         </a>
 
@@ -49,16 +48,14 @@
 </header>
 
 
-<!-- ==================== BOXPVP ==================== -->
+<!-- ==================== SKYWARS ==================== -->
 
-<section id="boxpvp" class="shop-section">
+<section id="skywars" class="shop-section">
 
-    <p class="small">BOXPVP</p>
-    <h2>RANGI BOXPVP</h2>
+    <p class="small">SKYWARS</p>
+    <h2>RANGI SKYWARS</h2>
 
     <div class="cards">
-
-        <!-- VIP -->
 
         <div class="card">
 
@@ -73,14 +70,12 @@
                 <li>✔ Dodatkowe możliwości</li>
             </ul>
 
-            <button onclick="buy('BOXPVP VIP', 999)">
+            <button onclick="buy('SKYWARS VIP', 999)">
                 KUP TERAZ
             </button>
 
         </div>
 
-
-        <!-- SVIP -->
 
         <div class="card popular">
 
@@ -97,14 +92,12 @@
                 <li>✔ Więcej komend</li>
             </ul>
 
-            <button onclick="buy('BOXPVP SVIP', 1999)">
+            <button onclick="buy('SKYWARS SVIP', 1999)">
                 KUP TERAZ
             </button>
 
         </div>
 
-
-        <!-- GVIP -->
 
         <div class="card">
 
@@ -119,14 +112,12 @@
                 <li>✔ Specjalne dodatki</li>
             </ul>
 
-            <button onclick="buy('BOXPVP GVIP', 2999)">
+            <button onclick="buy('SKYWARS GVIP', 2999)">
                 KUP TERAZ
             </button>
 
         </div>
 
-
-        <!-- FINAL -->
 
         <div class="card final">
 
@@ -141,7 +132,7 @@
                 <li>✔ Najlepsze możliwości</li>
             </ul>
 
-            <button onclick="buy('BOXPVP FINAL', 4999)">
+            <button onclick="buy('SKYWARS FINAL', 4999)">
                 KUP TERAZ
             </button>
 
@@ -160,8 +151,6 @@
     <h2>RANGI SURVIVAL</h2>
 
     <div class="cards">
-
-        <!-- VIP -->
 
         <div class="card">
 
@@ -182,8 +171,6 @@
 
         </div>
 
-
-        <!-- SVIP -->
 
         <div class="card popular">
 
@@ -207,8 +194,6 @@
         </div>
 
 
-        <!-- GVIP -->
-
         <div class="card">
 
             <div class="rank">GVIP</div>
@@ -228,8 +213,6 @@
 
         </div>
 
-
-        <!-- FINAL -->
 
         <div class="card final">
 
@@ -264,8 +247,6 @@
 
     <div class="cards">
 
-        <!-- VIP -->
-
         <div class="card">
 
             <div class="rank">VIP</div>
@@ -285,8 +266,6 @@
 
         </div>
 
-
-        <!-- SVIP -->
 
         <div class="card popular">
 
@@ -310,8 +289,6 @@
         </div>
 
 
-        <!-- GVIP -->
-
         <div class="card">
 
             <div class="rank">GVIP</div>
@@ -331,8 +308,6 @@
 
         </div>
 
-
-        <!-- FINAL -->
 
         <div class="card final">
 
@@ -406,7 +381,7 @@ function showMode(mode) {
 }
 
 
-showMode("boxpvp");
+showMode("skywars");
 
 
 async function buy(rank, price) {
@@ -417,31 +392,46 @@ async function buy(rank, price) {
         return;
     }
 
-    const response = await fetch("https://finalbro-stripe.oolek-kaczka.workers.dev", {
+    try {
 
-        method: "POST",
+        const response = await fetch(
+            "https://finalbro-stripe.oolek-kaczka.workers.dev",
+            {
+                method: "POST",
 
-        headers: {
-            "Content-Type": "application/json"
-        },
+                headers: {
+                    "Content-Type": "application/json"
+                },
 
-        body: JSON.stringify({
-            rank: rank,
-            price: price,
-            username: username
-        })
+                body: JSON.stringify({
+                    rank: rank,
+                    price: price,
+                    username: username
+                })
+            }
+        );
 
-    });
+        const data = await response.json();
 
-    const data = await response.json();
+        if (data.url) {
 
-    if (data.url) {
+            window.location.href = data.url;
 
-        window.location.href = data.url;
+        } else {
 
-    } else {
+            alert(
+                "Nie udało się rozpocząć płatności: " +
+                (data.error || "Nieznany błąd")
+            );
 
-        alert("Nie udało się rozpocząć płatności");
+        }
+
+    } catch (error) {
+
+        alert(
+            "Błąd połączenia ze Stripe: " +
+            error.message
+        );
 
     }
 
